@@ -1,0 +1,46 @@
+<div class="dataTables_length row" id="basic-usage_length" style="margin-top: 40px;">
+  <div class="col-md-2">
+    <label for="length-select" *ngIf="hasShowEntries"
+           style="font-size: 14px; font-weight: bold; margin-right: 2px; margin-left: 14px;">
+      Show: </label>
+    <select id="length-select" (change)="refilterTable()" [(ngModel)]="page_size" aria-controls="basic-usage"
+            class="form-control" name="basic-usage_length" *ngIf="hasShowEntries">
+      <option value="10">10</option>
+      <option value="25">25</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+      <option value="250">250</option>
+      <option value="500">500</option>
+    </select>
+  </div>
+  <div class="col-md-8">
+    <app-date-filter (submitForm)="filterById($event)" [filterParams]="filterParams" *ngIf="isFilterPresent">
+    </app-date-filter>
+  </div>
+  <div class="col-md-2 pull-right" *ngIf="canExport">
+    <div class="btn-group pull-right mt-20">
+      <button type="button" class="btn btn-rounded-20 btn-info">Export As</button>
+      <button type="button" class="btn btn-rounded-20 btn-info dropdown-toggle" data-toggle="dropdown"
+              aria-expanded="false">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-right" role="menu">
+        <li><a (click)="export('pdf')">PDF</a></li>
+        <li><a (click)="export('xlsx')">Excel</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<br>
+<table datatable [dtOptions]="dtOptions" class="table table-striped table-bordered row-border hover dt-responsive"
+       id="custom-datatable" #custom_dd>
+  <thead>
+  <tr>
+    <th *ngIf="hasCheckBox" class="select-checkbox" style="text-align :center">
+      <input type="checkbox" class="select-all-checkbox border-#{000000}"/>
+    </th>
+    <th *ngFor="let col of colTitle;">{{col.title}}</th>
+  </tr>
+  </thead>
+</table>

@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+button:disabled,
+button[disabled]:hover {
+  cursor: not-allowed;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.snackbar-success {
+  color: #EAF0F1;
+  background-color: #019031 !important;
+}
+
+.snackbar-warning {
+  color: #000000;
+  background-color: #F0DF87 !important;
+}
+
+.snackbar-default {
+  color: #EAF0F1;
+  background-color: #333945 !important;
+}
+
+.snackbar-danger {
+  color: #EAF0F1;
+  background-color: #E84342 !important;
+}
+
+mat-card {
+  margin: 30px 20px;
+  padding: 10px;
+  background-color: #ffffff !important;
+}
+
+mat-card > * {
+  color: #0a0c0d !important;
+}
+
+mat-dialog-container {
+  background-color: #ffffff !important;
+}
+
+mat-dialog-content, div, label {
+  color: #0a0c0d !important;
+}

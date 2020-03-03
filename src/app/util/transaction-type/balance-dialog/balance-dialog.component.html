@@ -1,0 +1,30 @@
+<section>
+  <div class="row">
+    <div class="col-md-12">
+      <form (ngSubmit)="submitForm(balanceForm)" #balanceForm="ngForm" role="form">
+        <h4 mat-dialog-title>Balance</h4>
+        <mat-dialog-content>
+          <div class="row">
+            <div class="col-md-8">
+              <label for="acc_no">Account Number: </label>
+              <input type="text" id="acc_no" class="form-control" name="accountNumber"
+                     placeholder="123***789" [(ngModel)]="model.accountNumber"/>
+            </div>
+          </div>
+          <ng-container *ngIf="isSuccess">
+            <div class="row" style="margin-top: 30px;">
+              <div class="col-md-8">
+                <span style="font-weight: bold; font-size: 16px;">Your Balance is: {{balance}}</span>
+              </div>
+            </div>
+          </ng-container>
+        </mat-dialog-content>
+        <mat-dialog-actions class="pull-right">
+          <button mat-button type="button" class="btn btn-danger" mat-dialog-close>Close</button>
+          <button mat-button type="submit" [disabled]="!balanceForm.form.valid" class="btn btn-info"><span
+            class="text-white">Send</span></button>
+        </mat-dialog-actions>
+      </form>
+    </div>
+  </div>
+</section>

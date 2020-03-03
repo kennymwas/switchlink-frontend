@@ -1,0 +1,61 @@
+<div class="header bg-gradient-danger py-7 py-lg-8">
+  <div class="separator separator-bottom separator-skew zindex-100">
+    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+    </svg>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container mt--8 pb-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-5 col-md-7">
+      <div class="card bg-secondary shadow border-0">
+        <div class="card-header bg-transparent pb-5">
+          <div class="text-muted text-center mt-2 mb-3"><strong>Login</strong></div>
+        </div>
+        <div class="card-body px-lg-5 py-lg-5">
+          <form class="form" (ngSubmit)="onLoggedin(loginForm)" #loginForm="ngForm" role="form">
+            <div class="form-group mb-3">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                </div>
+                <input class="form-control" [(ngModel)]="model.email"
+                       name="email" placeholder="Email"
+                       pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                       #email="ngModel" type="email" required>
+                <div *ngIf="email.errors?.required && email.touched" class="validation-error">
+                  This field is required
+                </div>
+                <div *ngIf="email.errors?.pattern && email.touched" class="validation-error">
+                  Please enter a valid email
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                </div>
+                <input class="form-control" [(ngModel)]="model.password"
+                       name="password" placeholder="Password" #password="ngModel"
+                       type="password" required>
+                <div *ngIf="password.errors?.required && password.touched" class="validation-error">
+                  This field is required
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-primary my-4">Sign in</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-6">
+          <a href="javascript:void(0)" class="text-light"><small>Forgot password?</small></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="page">
+  <section class="tile">
+    <mat-card class="mat-elevation-z3">
+      <mat-card-header>
+        <mat-card-title>Users</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <app-custom-datatable
+          [endpoint]="endpoint"
+          [routeView]="routeView"
+          [hasCheckBox]="hasCheckBox"
+          [cols]="cols"
+          [idColumn]="idColumn"
+          [hasShowEntries]="true"
+          [fileName]="''"
+          [canExport]="false"
+          [filterParams]="''"
+          [isFilterPresent]="false"
+        ></app-custom-datatable>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</div>

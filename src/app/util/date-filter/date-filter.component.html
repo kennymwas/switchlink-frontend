@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-12">
+    <form (submit)="filterById()" #form="ngForm" role="form">
+      <div class="row">
+        <div class="form-group col-md-3">
+          <label for="start">From: </label>
+          <input type="date" name="fromDate" id="start" [(ngModel)]="fromDate"
+                 class="form-control input-underline input-md">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="end">To: </label>
+          <input type="date" [min]="fromDate" name="toDate" id="end" [(ngModel)]="toDate"
+                 class="form-control input-underline input-md">
+        </div>
+        <div class="form-group col-md-3">
+          <label class="control-label">Search By : {{filterParams}}</label>
+          <input type="text" class="form-control searchInput" name="filter_needle"
+                 placeholder="Search By : {{filterParams}}" [(ngModel)]="filter_needle"/>
+        </div>
+        <div class="col-md-1">
+          <button mat-stroked-button class="filterButton" type="submit">Filter</button>
+        </div>
+        <div class="col-md-1 pl-30">
+          <button mat-stroked-button class="clearButton" type="button" (click)="clear(form)">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
