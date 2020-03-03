@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             this.router.navigate(['/home/transactions'], {replaceUrl: true});
           } else {
             if (response.access_token.length !== 0) {
+			  localStorage.clear();
               localStorage.setItem('access_token', response.access_token);
               localStorage.setItem('isLoggedin', String(true));
               this.stewardService.post('api/v1/user/me?access_token=' + response.access_token, {}).subscribe((tokenResp) => {
